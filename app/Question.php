@@ -9,6 +9,11 @@ class Question extends Model
     //
     protected $fillable =['title','body'];
     public function user(){
-        return $this->belongTo(user::class);
+        return $this->belongsTo(user::class);
+    }
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title']=$value;
+        $this->attributes['slug']=str_slug($value);
     }
 }
