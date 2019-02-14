@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function questions()
     {
-        return $this->hasMany(question::class);
+        return $this->hasMany(Question::class);
     }
    
 }
