@@ -22,9 +22,8 @@ class Question extends Model
        return route("questions.show",$this->slug); //id  was there first 
     }
 
-    public function getCreateDateAttribute()
-    {
-        return $this->created_at->diffForHumans();
+    public function grtCreatedDateAttribute(){
+        return  $this->created_at->diffForHumans();
     }
     public function getStatusAttribute()
     {

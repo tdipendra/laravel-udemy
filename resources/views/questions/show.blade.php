@@ -19,10 +19,19 @@
 
                     <div class="card-body">
                     <h3>{{ $question->body }} </h3>
-
+                    <div class="float-right">
+                                <span class="text-muted">Questioned {{  $question->created_at }} </span>
+                                <div class="media mt-2 ">
+                                    <a href="{{ $question->user->email }}" class="pr-2">
+                                    <img src="{{ $question->user->avater }}" alt="  ">
+                                    </a>
+                                    <div class="media-body mt-1 ">
+                                        <a href="{{ $question->user->url }}">{{ $question->user->name  }}</a>
+                                    </div>
+                                </div>
                     <!-- { !!  $question->body_html !! } -->
                     </form> 
-                   <!-- <form action="{{ route('questions.store')}}" method="post"> -->
+                   <form action="{{ route('questions.store')}}" method="post">
                    <!-- @csrf
                    <div class="form-group">
                     <label for="question-title"> Question title </label>
@@ -53,6 +62,39 @@
                     
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>{{ $question->answers_count . " " . str_plural('Answer', $question->answers_count) }}</h2>
+                    </div>
+                    <hr>
+                    @foreach($question->answers as $answer)
+                    <div class="media">
+                    <div class="media-body">
+                         <!-- { !! $answer->body_html !! } -->
+                        {{ $answer->body }}
+                        
+                          <div class="float-right">
+                                <span class="text-muted">Answered {{  $answer->created_at }} </span>
+                                <div class="media mt-2 ">
+                                    <a href="{{ $answer->user->email }}" class="pr-2">
+                                    <img src="{{ $answer->user->avater }}" alt="  ">
+                                    </a>
+                                    <div class="media-body mt-1 ">
+                                        <a href="{{ $answer->user->url }}">{{ $answer->user->name  }}</a>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                </div>
+             </div>
         </div>
     </div>
 </div>
