@@ -17,7 +17,7 @@
                 </div>
 
                     <div class="card-body"> 
-                            @include ('layouts._messages')
+                @include ('layouts._messages')
                     @foreach ($questions as $question)
                         <div class="media">
                         <div class="d-flex flex-column counters">
@@ -35,21 +35,22 @@
                             <div class="d-flex align-items center">
                             <h3 class="mt-0"> <a href="{{ $question->url }}"> {{ $question->title }}</a> ></h3>
                             <div class="ml-auto">
-                            <!-- @if (Auth::user()->can('update',$question)) -->
+                            @if (Auth::user()->can('update',$question))
                             <!-- @can ('update',$question) -->
                                 <a href="{{ route('questions.edit',$question->id) }}" class="btn btn-sm btn-outline-info " >Edit</a>
-                                <!-- @endif -->
+                            @endif
                             <!-- @endcan -->
-                                <!-- @if (Auth::user()->can('delete',$question)) -->
+                            @if (Auth::user()->can('delete',$question))
+
                                 <!-- @can('delete',$question) -->
                                     <form class="form-delete" method="post" action="{{ route('questions.destroy',$question->id)}}">
-                                        <!-- {{ method_field('DELETE') }} -->
-                                        <!-- {{ csrf_token() }} -->
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_token() }}
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure')" > Delete</button>
                                     </form>
-                                     <!-- @endif -->
+                            @endif
                                 <!-- @endcan -->
                             </div>
                             </div>
