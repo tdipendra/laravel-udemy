@@ -10734,8 +10734,7 @@ a.text-dark:focus {
   color: #ffed4a;
 }
 
-.vote-controls.vote-accepted,
-.vote-controls.vote-accepted:hover {
+.vote-controls.vote-accepted {
   color: #38c172;
 }
 

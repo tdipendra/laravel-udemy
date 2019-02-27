@@ -81,8 +81,12 @@ strong{
         &.favorited, &.favorited:hover{
           color: $warning;
         }
-    }
-    &.vote-accepted,&.vote-accepted:hover{
-      color: $green;
-    }
-}
+        
+        
+        }  
+        &.vote-accepted {
+          // background: $c olor_green;
+          color: $green; 
+            
+      }
+        }
