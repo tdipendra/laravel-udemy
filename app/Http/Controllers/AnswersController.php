@@ -16,12 +16,12 @@ class AnswersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Question $question, Request $request)
+    public function store(Question $answers, Request $request)
     {
         // $request->validate([
         //     'body'=>'required'
         // ]);
-        $question->answer()->create( $request->validate([
+        $answers->question()->create( $request->validate([
             'body'=>'required'
         ]) + ['user_id'=> \Auth::id()]);
         return back()->with('sucess',"Your answers has been summited sucessfully");

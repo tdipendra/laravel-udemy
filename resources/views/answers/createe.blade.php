@@ -7,7 +7,7 @@
                     </div>
                     <hr>
                     
-                    <form action="{{ route('questions.answers.store', '$question->id') }}" method="post">
+                    <form action="{{ route('questions.answers .store', '$question->id') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <textarea  class="form-control {{ $errors->has('body') ? 'is-invalid': ''  }} " name="body"  cols="300" rows="7"></textarea>
